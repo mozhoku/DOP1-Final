@@ -35,10 +35,12 @@ public class PlayerController : HealthSystem
     private bool do_the_second_attack = false;
     private int clickamount = 0;
     public LayerMask enemyMask;
+    private BoxCollider2D bc2d;
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
         sr = this.GetComponent<SpriteRenderer>();
+        bc2d = this.GetComponent<BoxCollider2D>();
         currently_climbing = false;
     }
 
@@ -71,6 +73,10 @@ public class PlayerController : HealthSystem
 
     private GameObject newly_damaged_attack1;
     void Attack1_OR() {
+        if (!isGrounded) {
+            rb2d.velocity = Vector2.zero;
+            rb2d.gravityScale = 0;
+        }
         Collider2D[] collisions = Physics2D.OverlapCircleAll(attack_anim_hitbox.transform.position, 0.25f, enemyMask);
         foreach (Collider2D coll in collisions) {
             if (coll.gameObject == newly_damaged_attack1) return;
@@ -94,6 +100,8 @@ public class PlayerController : HealthSystem
     }
     void StopAbilityToAttack() {
         clickamount = 0;
+        rb2d.gravityScale = 5;
+        rb2d.velocity = new Vector2(0, -10.0f);
         currently_attacking = false;
         do_the_second_attack = false;
         newly_damaged_attack1 = null;
@@ -147,8 +155,16 @@ public class PlayerController : HealthSystem
         if (!currently_climbing) {
             float horiz = Input.GetAxisRaw("Horizontal");
             if (horiz != 0) {
-                if (horiz < 0) {sr.flipX=true;} 
-                else {sr.flipX=false;}
+                if (horiz < 0) {
+                    Debug.Log("hello");
+                    sr.flipX = true;
+                    Debug.Log(bc2d.offset);
+                    bc2d.offset = new Vector2(-0.05f, bc2d.offset.y);
+                    Debug.Log(bc2d.offset);} 
+                else {
+                    sr.flipX = false;
+                    bc2d.offset = new Vector2(0.05f, bc2d.offset.y);}
+
                 this.transform.Translate(new Vector3(
                     Input.GetAxis("Horizontal")*player_walk_speed*Time.deltaTime,
                     0f,

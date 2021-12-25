@@ -1,0 +1,1341 @@
+fileFormatVersion: 2
+guid: 008298237f7946e4dbc2dab4918cc915
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -252927851198715764
+    second: magic-flame-persp2_1
+  - first:
+      213: 1953709093273719766
+    second: magic-flame-persp2_2
+  - first:
+      213: 4053656828176314662
+    second: magic-flame-persp2_3
+  - first:
+      213: 4759769195064571253
+    second: magic-flame-persp2_4
+  - first:
+      213: -6552570132844507474
+    second: magic-flame-persp2_5
+  - first:
+      213: 2796975864701166458
+    second: magic-flame-persp2_6
+  - first:
+      213: 7245822747661844347
+    second: magic-flame-persp2_7
+  - first:
+      213: -6515799859253502804
+    second: magic-flame-persp2_8
+  - first:
+      213: 5273009585776016660
+    second: magic-flame-persp2_9
+  - first:
+      213: 3376386133975839773
+    second: magic-flame-persp2_10
+  - first:
+      213: -4393892932015619657
+    second: magic-flame-persp2_11
+  - first:
+      213: 2038937809232274917
+    second: magic-flame-persp2_12
+  - first:
+      213: -609903812543489426
+    second: magic-flame-persp2_13
+  - first:
+      213: 6201807298776362438
+    second: magic-flame-persp2_14
+  - first:
+      213: 4534297474865331174
+    second: magic-flame-persp2_15
+  - first:
+      213: 8683235134402230909
+    second: magic-flame-persp2_16
+  - first:
+      213: -591557155030217327
+    second: magic-flame-persp2_17
+  - first:
+      213: 96328213690301197
+    second: magic-flame-persp2_18
+  - first:
+      213: -7234641796648994845
+    second: magic-flame-persp2_19
+  - first:
+      213: 8553542622968331023
+    second: magic-flame-persp2_20
+  - first:
+      213: -6877201684768553176
+    second: magic-flame-persp2_21
+  - first:
+      213: 6276110841050043626
+    second: magic-flame-persp2_22
+  - first:
+      213: 6467535852445355202
+    second: magic-flame-persp2_23
+  - first:
+      213: -5899435791942477712
+    second: magic-flame-persp2_24
+  - first:
+      213: 2715902769269325460
+    second: magic-flame-persp2_26
+  - first:
+      213: 8053235852780340487
+    second: magic-flame-persp2_27
+  - first:
+      213: -1920198060776447172
+    second: magic-flame-persp2_28
+  - first:
+      213: -9098522618298625422
+    second: magic-flame-persp2_29
+  - first:
+      213: 2058822578711811136
+    second: magic-flame-persp2_30
+  - first:
+      213: -1370099591312108768
+    second: magic-flame-persp2_32
+  - first:
+      213: 769917667746688097
+    second: magic-flame-persp2_37
+  - first:
+      213: 5035540695422020470
+    second: magic-flame-persp2_43
+  - first:
+      213: -272409710060477126
+    second: magic-flame-persp2_44
+  - first:
+      213: 6357223458973059956
+    second: magic-flame-persp2_45
+  - first:
+      213: 6504213490711364010
+    second: magic-flame-persp2_46
+  - first:
+      213: 8153331375890851566
+    second: magic-flame-persp2_47
+  - first:
+      213: -3657306570161701827
+    second: magic-flame-persp2_48
+  - first:
+      213: 332002790492803207
+    second: magic-flame-persp2_49
+  - first:
+      213: 5789508265578058989
+    second: magic-flame-persp2_50
+  - first:
+      213: 3670558278225575343
+    second: magic-flame-persp2_51
+  - first:
+      213: -9176624241033686866
+    second: magic-flame-persp2_52
+  - first:
+      213: -3953893649436409678
+    second: magic-flame-persp2_53
+  - first:
+      213: -1869367799813851095
+    second: magic-flame-persp2_54
+  - first:
+      213: -5617030717918626324
+    second: magic-flame-persp2_55
+  - first:
+      213: -3140636953275360896
+    second: magic-flame-persp2_56
+  - first:
+      213: 326949890058872862
+    second: magic-flame-persp2_57
+  - first:
+      213: 902837096447768005
+    second: magic-flame-persp2_59
+  - first:
+      213: -7893290919564494992
+    second: magic-flame-persp2_62
+  - first:
+      213: 5783199395206584339
+    second: magic-flame-persp2_63
+  - first:
+      213: -3006506675048569923
+    second: magic-flame-persp2_25
+  - first:
+      213: -255188921662522696
+    second: magic-flame-persp2_31
+  - first:
+      213: -7009780248092927293
+    second: magic-flame-persp2_33
+  - first:
+      213: -5024152511400085627
+    second: magic-flame-persp2_34
+  - first:
+      213: -615823973774253471
+    second: magic-flame-persp2_35
+  - first:
+      213: -2453783956653668352
+    second: magic-flame-persp2_36
+  - first:
+      213: -6667110627798852190
+    second: magic-flame-persp2_38
+  - first:
+      213: -481392698717280013
+    second: magic-flame-persp2_39
+  - first:
+      213: 6725329990588324349
+    second: magic-flame-persp2_40
+  - first:
+      213: -7331030095742147889
+    second: magic-flame-persp2_41
+  - first:
+      213: 1356057268987170339
+    second: magic-flame-persp2_42
+  - first:
+      213: 6869341604819298134
+    second: magic-flame-persp2_0
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: magic-flame-persp2_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c886f7b957b6d7cf0800000000000000
+      internalID: -252927851198715764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3d703b118fc1b10800000000000000
+      internalID: 1953709093273719766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62139c4786b714830800000000000000
+      internalID: 4053656828176314662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575bba45dd81e0240800000000000000
+      internalID: 4759769195064571253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae08f16e289015a0800000000000000
+      internalID: -6552570132844507474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73aadcdabad0d620800000000000000
+      internalID: 2796975864701166458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f34d326655e8460800000000000000
+      internalID: 7245822747661844347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac97a9dc8a3395a0800000000000000
+      internalID: -6515799859253502804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41db869d74e7d2940800000000000000
+      internalID: 5273009585776016660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d143f2ccc455bde20800000000000000
+      internalID: 3376386133975839773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b10c1e78a1c503c0800000000000000
+      internalID: -4393892932015619657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5276e7223cb4c10800000000000000
+      internalID: 2038937809232274917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a5032c6bf2987f0800000000000000
+      internalID: -609903812543489426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd6df031ee311650800000000000000
+      internalID: 6201807298776362438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1500
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb7c47978f0dee30800000000000000
+      internalID: 4534297474865331174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a7c37595c018870800000000000000
+      internalID: 8683235134402230909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d4516d6ed5ac7f0800000000000000
+      internalID: -591557155030217327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bbbdefff9365100800000000000000
+      internalID: 96328213690301197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7fa81ed93699b90800000000000000
+      internalID: -7234641796648994845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bb03d62b944b670800000000000000
+      internalID: 8553542622968331023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82707a231854f80a0800000000000000
+      internalID: -6877201684768553176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae414c3ce89391750800000000000000
+      internalID: 6276110841050043626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_23
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1200
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cccb11679d41c950800000000000000
+      internalID: 6467535852445355202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0781b0e576ef02ea0800000000000000
+      internalID: -5899435791942477712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e3ccedd23d0b520800000000000000
+      internalID: 2715902769269325460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70589691757d2cf60800000000000000
+      internalID: 8053235852780340487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33a60199061a55e0800000000000000
+      internalID: -1920198060776447172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272147b72ed8bb180800000000000000
+      internalID: -9098522618298625422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044dbab2a38629c10800000000000000
+      internalID: 2058822578711811136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0231fe84ead6cfce0800000000000000
+      internalID: -1370099591312108768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ca6542a0c4faa00800000000000000
+      internalID: 769917667746688097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b27a24595d1e540800000000000000
+      internalID: 5035540695422020470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a356a7edfc4383cf0800000000000000
+      internalID: -272409710060477126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b8eddcd05693850800000000000000
+      internalID: 6357223458973059956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1872185bb934a50800000000000000
+      internalID: 6504213490711364010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6650c20b3762170800000000000000
+      internalID: 8153331375890851566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c3fca3d03ae3dc0800000000000000
+      internalID: -3657306570161701827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78013c767c28b9400800000000000000
+      internalID: 332002790492803207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3a3e2bb1eb646d0800000000000000
+      internalID: -3006506675048569923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 900
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bab0bd1703657cf0800000000000000
+      internalID: -255188921662522696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca1fd6f00248be90800000000000000
+      internalID: -7009780248092927293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5877c94f8ef964ab0800000000000000
+      internalID: -5024152511400085627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162240fcb572477f0800000000000000
+      internalID: -615823973774253471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0080b1cfd7862fdd0800000000000000
+      internalID: -2453783956653668352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad51d7353aa973a0800000000000000
+      internalID: -6667110627798852190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 600
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f86d7b14efb159f0800000000000000
+      internalID: -481392698717280013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df95c4e7efb255d50800000000000000
+      internalID: 6725329990588324349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2679928f2f24a90800000000000000
+      internalID: -7331030095742147889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_42
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 300
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e0115c6eea1d210800000000000000
+      internalID: 1356057268987170339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magic-flame-persp2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 256
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657e0145bcdc45f50800000000000000
+      internalID: 6869341604819298134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

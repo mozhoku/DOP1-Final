@@ -568,14 +568,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.75
-    functionName: StopAbilityToAttack
+    functionName: Attack1_OR
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 76f5bbf2cc699c64ea43ad15a464db69, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.75
-    functionName: Attack1_OR
+    functionName: StopAbilityToAttack
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 76f5bbf2cc699c64ea43ad15a464db69, type: 3}
     floatParameter: 0

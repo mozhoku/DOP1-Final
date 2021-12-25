@@ -9,5 +9,11 @@ public class HealthSystem : MonoBehaviour
     public void GetDamaged(float damage2) {
         health -= damage2;
     }
+    void Update() {
+        if (health == 0) {
+            Destroy(this.gameObject);
+        }
+    }
+
 
 }
