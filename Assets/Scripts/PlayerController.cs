@@ -6,6 +6,7 @@ public class PlayerController : HealthSystem
 {
 
     #region ANIM_DECLERATIONS
+    private const string PLAYER_HURT = "player_hurt";
     private const string PLAYER_IDLE = "player_idle";
     private const string PLAYER_RUN = "player_run";
     private const string PLAYER_CLIMB = "player_climb";
@@ -24,7 +25,6 @@ public class PlayerController : HealthSystem
     [SerializeField]
     private float player_walk_speed = 2.0f;
     private Rigidbody2D rb2d;
-    private SpriteRenderer sr;
     private bool isGrounded;
     private bool currently_attacking;
     [SerializeField]
@@ -36,38 +36,72 @@ public class PlayerController : HealthSystem
     private int clickamount = 0;
     public LayerMask enemyMask;
     private BoxCollider2D bc2d;
+    private Vector3 init_scale;
+    private SpriteRenderer sr;
+    private bool isHurt;
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
-        sr = this.GetComponent<SpriteRenderer>();
         bc2d = this.GetComponent<BoxCollider2D>();
+        sr = this.GetComponent<SpriteRenderer>();
+        init_scale = this.transform.localScale;
         currently_climbing = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!currently_attacking) {
+        if (!currently_attacking && !isHurt) {
             PlayerMovement();   
             if (!CheckIfGrounded()) {
                 CanClimb();
             }
         }
-        if (!currently_climbing) {
+        if (!currently_climbing && !isHurt) {
             Attack();
+        }
+        Debug.Log(clickamount);
+        Debug.Log(currently_attacking);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+
+        if (other.gameObject.layer == 6) {
+            isHurt = true;
+            current_anim_state = PLAYER_HURT;
+            foreach (ContactPoint2D contact in other.contacts)
+            {
+                Vector2 direction = new Vector2(this.transform.position.x, this.transform.position.y) - contact.point;
+                rb2d.AddForce(direction*10.0f, ForceMode2D.Impulse);
+            }
+            base.GetDamaged(20.0f);
+            base.GetHurt(sr);
         }
     }
 
+    void RestartIsHurt() {
+        isHurt = false;
+        //This is to fix animation stuck problem
+        //Dont touch this
+        currently_attacking = false;
+        clickamount = 0;
+    }
+
     #region CLICK_DEFAULT_ATTACK
+    //This is to fix the animation skipping that happens when you attack consequently
+    //Reset is in the resetting function, at the end
+    private string before_attack_anim;
     void Attack() {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isHurt)
             clickamount++;
         if (clickamount > 1 && current_anim_state != PLAYER_GROUND_ATTACK_2) {
             do_the_second_attack = true;
         }
         if (clickamount >= 1 && !currently_attacking) {
+            before_attack_anim = current_anim_state;
             currently_attacking = true;
             current_anim_state = PLAYER_GROUND_ATTACK_1;
+        } else {
         }
     }
 
@@ -79,9 +113,9 @@ public class PlayerController : HealthSystem
         }
         Collider2D[] collisions = Physics2D.OverlapCircleAll(attack_anim_hitbox.transform.position, 0.25f, enemyMask);
         foreach (Collider2D coll in collisions) {
-            if (coll.gameObject == newly_damaged_attack1) return;
+            if (coll.gameObject == newly_damaged_attack1) {} else{
             newly_damaged_attack1 = coll.gameObject;
-            newly_damaged_attack1.GetComponent<Enemy>().GetDamaged(20.0f);
+            newly_damaged_attack1.GetComponent<Enemy>().GetDamaged(20.0f);}
         }
     }
 
@@ -92,16 +126,17 @@ public class PlayerController : HealthSystem
             current_anim_state = PLAYER_GROUND_ATTACK_2;
             Collider2D[] collisions = Physics2D.OverlapCircleAll(attack_anim_hitbox.transform.position, 0.25f, enemyMask);
             foreach (Collider2D coll in collisions) {
-                if (coll.gameObject == newly_damaged_attack2) return;
+                if (coll.gameObject == newly_damaged_attack2) {} else{
                 newly_damaged_attack2 = coll.gameObject;
-                newly_damaged_attack2.GetComponent<Enemy>().GetDamaged(20.0f);
+                newly_damaged_attack2.GetComponent<Enemy>().GetDamaged(20.0f);}
             }
         }
     }
     void StopAbilityToAttack() {
+        current_anim_state = before_attack_anim;
         clickamount = 0;
         rb2d.gravityScale = 5;
-        rb2d.velocity = new Vector2(0, -10.0f);
+        rb2d.velocity = new Vector2(0, -5.0f);
         currently_attacking = false;
         do_the_second_attack = false;
         newly_damaged_attack1 = null;
@@ -110,12 +145,6 @@ public class PlayerController : HealthSystem
 
     #endregion
 
-
-    //Used animation event
-    //TODO:
-    //When the height of the sprite you want to climb towards changes
-    //Hands are in the wrong place
-    //Fix it 
     #region CLIMB
 
     void ReturnAbilityToMove() {
@@ -151,19 +180,15 @@ public class PlayerController : HealthSystem
     //false if not
     #region PLAYER_MOVEMENT
 
+    float time_before_switch = 0.15f;
     void PlayerMovement() {
         if (!currently_climbing) {
             float horiz = Input.GetAxisRaw("Horizontal");
             if (horiz != 0) {
                 if (horiz < 0) {
-                    Debug.Log("hello");
-                    sr.flipX = true;
-                    Debug.Log(bc2d.offset);
-                    bc2d.offset = new Vector2(-0.05f, bc2d.offset.y);
-                    Debug.Log(bc2d.offset);} 
+                    this.transform.localScale = new Vector3(-init_scale.x, init_scale.y,init_scale.z);}
                 else {
-                    sr.flipX = false;
-                    bc2d.offset = new Vector2(0.05f, bc2d.offset.y);}
+                    this.transform.localScale = new Vector3(init_scale.x, init_scale.y,init_scale.z);}
 
                 this.transform.Translate(new Vector3(
                     Input.GetAxis("Horizontal")*player_walk_speed*Time.deltaTime,
@@ -171,7 +196,11 @@ public class PlayerController : HealthSystem
                     0f
                 ));
                 current_anim_state = PLAYER_RUN;
-            } else {current_anim_state=PLAYER_IDLE;}
+            } else {
+                //Bootleg fix for animation skipping
+                time_before_switch -= Time.deltaTime;
+                if(time_before_switch < 0) {current_anim_state=PLAYER_IDLE;time_before_switch=0.15f;}
+            }
 
             isGrounded = CheckIfGrounded();
 
