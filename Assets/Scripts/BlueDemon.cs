@@ -8,8 +8,9 @@ public class BlueDemon : Enemy
     private const string ATTACK_ANIM = "blue_demon_fly_attack";
     private const string IDLE = "blue_demon_idle";
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine("Attack");
     }
 
@@ -25,8 +26,9 @@ public class BlueDemon : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         
     }
 }
