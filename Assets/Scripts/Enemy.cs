@@ -25,7 +25,7 @@ public class Enemy : HealthSystem
 
     IEnumerator DeathLookup() {
         while (health > 0) {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
         Instantiate(death_anim, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
