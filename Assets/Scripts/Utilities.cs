@@ -7,4 +7,8 @@ public class Utilities : MonoBehaviour
     void DestroyYourself() {
         Destroy(this.gameObject);
     }
+
+    void DisableYourself() {
+        this.gameObject.SetActive(false);
+    }
 }
