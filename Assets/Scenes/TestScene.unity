@@ -342,7 +342,7 @@ MonoBehaviour:
   spawn_point: {fileID: 2136293752}
   dash_anim: {fileID: 2336619247015830640, guid: 016a601fc594ed443b39ccad7ca16afc, type: 3}
   dash_duration: 0.4
-  dash_cooldown: 0.6
+  dash_cooldown: 0.1
   dash_range: 10
 --- !u!1 &324399945
 GameObject:
