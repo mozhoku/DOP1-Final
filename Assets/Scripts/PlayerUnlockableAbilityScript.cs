@@ -16,6 +16,7 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
     private float cooldownsave_fordash;
     private float durationsave_fordash;
     public float dash_range = 0.05f;
+    private bool can_dash_in_air;
 
 
     private PlayerController pc;
@@ -40,6 +41,7 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pc.isGrounded) can_dash_in_air = true;
         Dash();
     }
 
@@ -47,6 +49,7 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
     void Dash() {
         switch (state_dash) {
             case AbilityState.ready:
+                if (!pc.isGrounded && !can_dash_in_air) return;
                 if (Input.GetKeyDown(KeyCode.LeftShift) && isDashUnlocked && !pc.currently_attacking) {
                     rb2d.gravityScale = 0;
                     rb2d.velocity = Vector2.zero;
@@ -54,10 +57,11 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
                     pc.current_anim_state = PLAYER_DASH;
                     state_dash = AbilityState.active;
                     StartCoroutine(SpawnFXSprites());
-
                 }
                 break;
             case AbilityState.active:
+                //invul during dash -> no collision between enemies and player
+                Physics2D.IgnoreLayerCollision(8,6, true);
                 if (Mathf.Sign(transform.localScale.x) == -1)
                     rb2d.velocity = new Vector2(-dash_range, 0f);
                 else
@@ -65,6 +69,8 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
                 pc.current_anim_state = PLAYER_DASH;
                 dash_duration -= Time.deltaTime;                
                 if (dash_duration < 0) {
+                    if (!pc.isGrounded && can_dash_in_air) can_dash_in_air = false;
+                    Physics2D.IgnoreLayerCollision(8,6, false);
                     rb2d.velocity = Vector2.zero;
                     state_dash = AbilityState.on_cooldown;
                     dash_duration = durationsave_fordash;
