@@ -46,6 +46,8 @@ public class PlayerController : HealthSystem
     public GameObject dust_particle_jump_directional;
     public GameObject dust_particle_jump_nondirectional;
     public bool playerDead;
+    private bool isInvincible;
+    
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
@@ -54,11 +56,12 @@ public class PlayerController : HealthSystem
         init_scale = this.transform.localScale;
         currently_climbing = false;
         lockPlayer = false;
+        playerDead = false;
     }
 
     void Update()
     {
-        if (health == 0) {current_anim_state = PLAYER_DEATH; return;}
+        if (health == 0) {OnDeath();return;}
         if (!currently_attacking && !isHurt && !lockPlayer) {
             PlayerMovement();   
             if (!CheckIfGrounded()) {
@@ -71,19 +74,31 @@ public class PlayerController : HealthSystem
 
     }
 
+    void OnDeath() {
+        current_anim_state = PLAYER_DEATH; 
+        playerDead = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D other) {
 
-        if (other.gameObject.layer == 6) {
+        if (other.gameObject.layer == 6 && !isInvincible) {
             isHurt = true;
             current_anim_state = PLAYER_HURT;
             foreach (ContactPoint2D contact in other.contacts)
             {
                 Vector2 direction = new Vector2(this.transform.position.x, this.transform.position.y) - contact.point;
-                rb2d.AddForce(direction*10.0f, ForceMode2D.Impulse);
+                rb2d.AddForce(direction*4.0f, ForceMode2D.Impulse);
             }
             base.GetDamaged(20.0f);
             base.GetHurt(sr);
+            rb2d.gravityScale = 5;
+            isInvincible = true;
+            Invoke("ResetInvincible", 2.0f);
         }
+    }
+
+    void ResetInvincible() {
+        isInvincible = false;
     }
 
     void RestartIsHurt() {
@@ -171,7 +186,9 @@ public class PlayerController : HealthSystem
         if (currently_climbing) return;
         Collider2D[] amount = Physics2D.OverlapCircleAll(can_climb_check.position, 0.15f);
         foreach (Collider2D bash in amount) {
-            if (bash.gameObject.CompareTag("platform")) {
+            // if (bash.gameObject.CompareTag("platform")) {
+            // 7 is the platform layer index
+            if (bash.gameObject.layer == 7) {
                 float y = bash.gameObject.transform.localScale.y;
                 this.transform.position = new Vector3(this.transform.position.x, 
                                                         bash.transform.position.y+(y/2)-0.3f, 
