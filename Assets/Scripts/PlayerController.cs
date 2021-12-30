@@ -130,8 +130,8 @@ public class PlayerController : HealthSystem
     private GameObject newly_damaged_attack1;
     void Attack1_OR() {
         if (!isGrounded) {
-            rb2d.velocity = Vector2.zero;
-            rb2d.gravityScale = 0;
+            // rb2d.velocity = Vector2.zero;
+            // rb2d.gravityScale = 0;
         }
         Collider2D[] collisions = Physics2D.OverlapCircleAll(attack_anim_hitbox.transform.position, attack_radius, enemyMask);
         foreach (Collider2D coll in collisions) {
