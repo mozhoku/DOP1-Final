@@ -11,6 +11,11 @@ public class HealthSystem : MonoBehaviour
         health -= damage;
     }
 
+    public void GetDamaged_FLASHFUSED(float damage, SpriteRenderer sr) {
+        health -= damage;
+        GetHurt(sr);
+    }
+
     protected void GetHurt(SpriteRenderer sr) {
         StartCoroutine(HurtCoroutine(sr));
     }
