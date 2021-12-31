@@ -47,12 +47,15 @@ public class PlayerController : HealthSystem
     public GameObject dust_particle_jump_nondirectional;
     public bool playerDead;
     private bool isInvincible;
+    private PlayerUnlockableAbilityScript unlockable_abilites;
+    private bool canDoubleJump;
     
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
         bc2d = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponent<SpriteRenderer>();
+        unlockable_abilites = GetComponent<PlayerUnlockableAbilityScript>();
         init_scale = this.transform.localScale;
         currently_climbing = false;
         lockPlayer = false;
@@ -61,7 +64,7 @@ public class PlayerController : HealthSystem
 
     void Update()
     {
-        if (health == 0) {OnDeath();return;}
+        if (health <= 0) {OnDeath();return;}
         if (!currently_attacking && !isHurt && !lockPlayer) {
             PlayerMovement();   
             if (!CheckIfGrounded()) {
@@ -82,19 +85,33 @@ public class PlayerController : HealthSystem
     private void OnCollisionEnter2D(Collision2D other) {
 
         if (other.gameObject.layer == 6 && !isInvincible) {
-            isHurt = true;
-            current_anim_state = PLAYER_HURT;
+            // isHurt = true;
+            // current_anim_state = PLAYER_HURT;
+            PlayerGetHurt(20.0f);
             foreach (ContactPoint2D contact in other.contacts)
             {
                 Vector2 direction = new Vector2(this.transform.position.x, this.transform.position.y) - contact.point;
                 rb2d.AddForce(direction*4.0f, ForceMode2D.Impulse);
             }
-            base.GetDamaged(20.0f);
-            base.GetHurt(sr);
-            rb2d.gravityScale = 5;
-            isInvincible = true;
-            Invoke("ResetInvincible", 2.0f);
+            // base.GetDamaged(20.0f);
+            // base.GetHurt(sr);
+            // rb2d.gravityScale = 5;
+            // isInvincible = true;
+            // Invoke("ResetInvincible", 2.0f);
         }
+    }
+
+    public void PlayerGetHurt(float damage) {
+        if (unlockable_abilites.state_dash == PlayerUnlockableAbilityScript.AbilityState.active) {
+            return;
+        } else{
+        isHurt = true;
+        current_anim_state = PLAYER_HURT;
+        base.GetDamaged(damage);
+        base.GetHurt(sr);
+        rb2d.gravityScale = 5;
+        isInvincible = true;
+        Invoke("ResetInvincible", 2.0f);}
     }
 
     void ResetInvincible() {
@@ -129,10 +146,10 @@ public class PlayerController : HealthSystem
 
     private GameObject newly_damaged_attack1;
     void Attack1_OR() {
-        if (!isGrounded) {
+        // if (!isGrounded) {
             // rb2d.velocity = Vector2.zero;
             // rb2d.gravityScale = 0;
-        }
+        // }
         Collider2D[] collisions = Physics2D.OverlapCircleAll(attack_anim_hitbox.transform.position, attack_radius, enemyMask);
         foreach (Collider2D coll in collisions) {
             if (coll.gameObject == newly_damaged_attack1) {} else{
@@ -240,12 +257,14 @@ public class PlayerController : HealthSystem
             }
 
             isGrounded = CheckIfGrounded();
-
+            if (isGrounded) canDoubleJump = true;
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-                if (horiz > 0) {Play_Animation_Effect_Smoke_Directional(horiz, new Vector3(-0.55f, 0.30f, 0.0f)); }
-                else if (horiz < 0) {Play_Animation_Effect_Smoke_Directional(horiz, new Vector3(0.55f, 0.30f, 0.0f)); }
-                else if (horiz == 0) {Play_Animation_Effect_Smoke_Nondirectional();}
-                rb2d.AddForce(new Vector2(0, jump_strength), ForceMode2D.Impulse);
+                JumpFunction(jump_strength, horiz);
+            }
+            if (canDoubleJump && !isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+                rb2d.velocity = Vector2.zero;
+                JumpFunction(jump_strength/1.3f, horiz);
+                canDoubleJump = false;
             }
             if (!isGrounded && rb2d.velocity.y > 0) {
                 current_anim_state = PLAYER_JUMP;
@@ -264,6 +283,13 @@ public class PlayerController : HealthSystem
                 Invoke("ReturnAbilityToMove", 0.1f);
             }
         }
+    }
+
+    void JumpFunction(float strength, float horiz) {
+        if (horiz > 0) {Play_Animation_Effect_Smoke_Directional(horiz, new Vector3(-0.55f, 0.30f, 0.0f)); }
+        else if (horiz < 0) {Play_Animation_Effect_Smoke_Directional(horiz, new Vector3(0.55f, 0.30f, 0.0f)); }
+        else if (horiz == 0) {Play_Animation_Effect_Smoke_Nondirectional();}
+        rb2d.AddForce(new Vector2(0, strength), ForceMode2D.Impulse);
     }
 
     //false if not grounded

@@ -21,12 +21,12 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
 
     private PlayerController pc;
     private Rigidbody2D rb2d;
-    enum AbilityState {
+    public enum AbilityState {
         ready,
         active,
         on_cooldown
     };
-    private AbilityState state_dash;
+    public AbilityState state_dash;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,7 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pc.playerDead){return;} 
         if (pc.isGrounded) can_dash_in_air = true;
         Dash();
     }

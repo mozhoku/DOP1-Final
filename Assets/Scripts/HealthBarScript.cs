@@ -7,10 +7,11 @@ public class HealthBarScript : MonoBehaviour
 {
     public Slider slider;
     public Vector3 offset;
-    private Enemy enemy_script;
+    public Enemy enemy_script;
+
 
     void Start() {
-        enemy_script = GetComponent<BlueDemon>();
+
     }
 
     void Update()
