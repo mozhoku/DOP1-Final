@@ -1183,7 +1183,7 @@ MonoBehaviour:
   enableAI: 1
   target: {fileID: 54908661}
   next_waypoint_distance: 1
-  speed: 10
+  speed: 100
   dont_move: 0
   animator: {fileID: 1141854977}
   raycastpos: {fileID: 42526600}

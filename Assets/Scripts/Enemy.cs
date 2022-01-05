@@ -70,7 +70,8 @@ public class Enemy : HealthSystem
         // Vector2.Lerp((Vector2)transform.position, direction, 0.1f);
         // rb2d.MovePosition(Vector2.Lerp((Vector2)transform.position, path.vectorPath[current_waypoint], 0.1f));
         // transform.Translate(direction);
-        if (!dont_move) rb2d.AddForce(force);
+        // if (!dont_move) rb2d.AddForce(force);
+        if (!dont_move) rb2d.velocity = force;
 
         float dist = Vector2.Distance(rb2d.position, path.vectorPath[current_waypoint]);
         if (dist < next_waypoint_distance) {
