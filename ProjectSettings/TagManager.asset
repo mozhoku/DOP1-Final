@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - platform
+  - asansor
+  - asansor_trigger
+  - GameManager
+  - level_before_tag
+  - level_after_tag
+  - Spike
   layers:
   - Default
   - TransparentFX

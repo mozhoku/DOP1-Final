@@ -17,13 +17,19 @@ public class PlayerController : HealthSystem
     private const string PLAYER_GROUND_ATTACK_2 = "player_ground_attack2";
     private const string PLAYER_FALL = "player_fall";
     #endregion
+    
     private bool currently_climbing;
     public bool lockPlayer;
     public string current_anim_state;
+    [SerializeField] private LevelLoader levelLoad;
     [SerializeField]
     private Transform grounded_check_transform; 
     [SerializeField]
-    private Transform can_climb_check; 
+    private Transform can_climb_check_HIT; 
+    [SerializeField]
+    private Transform can_climb_check_MISS; 
+    [SerializeField]
+    private Transform can_climb_check_TRANSFORMPOS; 
     [SerializeField]
     private float player_walk_speed = 2.0f;
     private Rigidbody2D rb2d;
@@ -49,6 +55,7 @@ public class PlayerController : HealthSystem
     private bool isInvincible;
     private PlayerUnlockableAbilityScript unlockable_abilites;
     private bool canDoubleJump;
+    [SerializeField] LayerMask platformMask;
     
 
     void Start() {
@@ -64,24 +71,91 @@ public class PlayerController : HealthSystem
 
     void Update()
     {
-        if (health <= 0) {OnDeath();return;}
+        if (health <= 0) {
+            if (current_anim_state == PLAYER_DEATH) return;
+            OnDeath();
+            return;
+        }
         if (!currently_attacking && !isHurt && !lockPlayer) {
             PlayerMovement();   
             if (!CheckIfGrounded()) {
                 CanClimb();
+
             }
         }
         if (!currently_climbing && !isHurt && !lockPlayer) {
             Attack();
         }
+    }
 
+    public void LockPlayerDialogue() {
+        lockPlayer = true;
+        rb2d.velocity = Vector2.zero;
+        current_anim_state = PLAYER_IDLE;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("asansor_trigger")) {
+            lockPlayer = true;
+            current_anim_state = PLAYER_IDLE;
+            rb2d.velocity = Vector2.zero;
+            GameObject ele_go = FindClosestGos("asansor");
+            StartCoroutine(GoUpElevator(ele_go));
+        }
+    }
+
+    IEnumerator GoUpElevator(GameObject ele_go) {
+        while (true) {
+            Vector3 nextpos = Vector3.Lerp(ele_go.transform.position, new Vector3(ele_go.transform.position.x, 0.0f, 0.0f), 0.02f);
+            if (nextpos.y == 0.0f || nextpos.y > -0.1f) {
+                ele_go.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                break;
+            }
+            ele_go.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 300.0f, 0.0f)*Time.fixedDeltaTime;
+            rb2d.velocity = Vector2.zero;
+            yield return new WaitForSeconds(0.1f);
+        }
+        lockPlayer = false;
+    }
+
+    private GameObject FindClosestGos(string tag)
+    {
+        GameObject[] gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos) {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude; //no minuses
+            if (curDistance < distance) {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 
     void OnDeath() {
+        rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         current_anim_state = PLAYER_DEATH; 
         playerDead = true;
+        StartCoroutine(levelLoad.OnDeath());
     }
 
+    public void PlayerGetHurt(float damage) {
+        if (unlockable_abilites.state_dash == PlayerUnlockableAbilityScript.AbilityState.active) {
+            return;
+        } else{
+        isHurt = true;
+        current_anim_state = PLAYER_HURT;
+        base.GetDamaged(damage);
+        base.GetHurt(sr);
+        rb2d.gravityScale = 5;
+        isInvincible = true;
+        Invoke("ResetInvincible", 2.0f); }
+    }
+
+    #region ONCOLLISION
     private void OnCollisionEnter2D(Collision2D other) {
 
         if (other.gameObject.layer == 6 && !isInvincible) {
@@ -100,19 +174,10 @@ public class PlayerController : HealthSystem
             // Invoke("ResetInvincible", 2.0f);
         }
     }
+    #endregion
 
-    public void PlayerGetHurt(float damage) {
-        if (unlockable_abilites.state_dash == PlayerUnlockableAbilityScript.AbilityState.active) {
-            return;
-        } else{
-        isHurt = true;
-        current_anim_state = PLAYER_HURT;
-        base.GetDamaged(damage);
-        base.GetHurt(sr);
-        rb2d.gravityScale = 5;
-        isInvincible = true;
-        Invoke("ResetInvincible", 2.0f);}
-    }
+
+    #region RESETS
 
     void ResetInvincible() {
         isInvincible = false;
@@ -125,6 +190,7 @@ public class PlayerController : HealthSystem
         currently_attacking = false;
         clickamount = 0;
     }
+    #endregion
 
     #region CLICK_DEFAULT_ATTACK
     //This is to fix the animation skipping that happens when you attack consequently
@@ -137,6 +203,7 @@ public class PlayerController : HealthSystem
             do_the_second_attack = true;
         }
         if (clickamount >= 1 && !currently_attacking) {
+            rb2d.velocity = Vector2.zero;
             before_attack_anim = current_anim_state;
             currently_attacking = true;
             current_anim_state = PLAYER_GROUND_ATTACK_1;
@@ -189,11 +256,14 @@ public class PlayerController : HealthSystem
     void ReturnAbilityToMove() {
         currently_climbing = false;
     }
+
     void LockMovementForClimbing() {
         currently_climbing = true;
-        rb2d.gravityScale = 0;
         rb2d.velocity = Vector2.zero;
+        rb2d.gravityScale = 0;
+        current_anim_state = PLAYER_CLIMB;
     }
+
     void StartClimbIdleAnimation() {
         current_anim_state = PLAYER_CLIMB_IDLE;
     }
@@ -201,18 +271,37 @@ public class PlayerController : HealthSystem
 
     void CanClimb() {
         if (currently_climbing) return;
-        Collider2D[] amount = Physics2D.OverlapCircleAll(can_climb_check.position, 0.15f);
-        foreach (Collider2D bash in amount) {
-            // if (bash.gameObject.CompareTag("platform")) {
-            // 7 is the platform layer index
-            if (bash.gameObject.layer == 7) {
-                float y = bash.gameObject.transform.localScale.y;
-                this.transform.position = new Vector3(this.transform.position.x, 
-                                                        bash.transform.position.y+(y/2)-0.3f, 
-                                                        this.transform.position.z);
-                current_anim_state = PLAYER_CLIMB;
-                return;
-            }
+        #region old_climb
+        // Collider2D[] amount = Physics2D.OverlapCircleAll(can_climb_check.position, 0.15f);
+        // foreach (Collider2D bash in amount) {
+        //     // if (bash.gameObject.CompareTag("platform")) {
+        //     // 7 is the platform layer index
+        //     if (bash.gameObject.layer == 7) {
+        //         float y = bash.gameObject.transform.localScale.y;
+        //         this.transform.position = new Vector3(this.transform.position.x, 
+        //                                                 bash.transform.position.y+(y/2)-0.3f, 
+        //                                                 this.transform.position.z);
+        //         current_anim_state = PLAYER_CLIMB;
+        //         return;
+        //     }
+        // }
+        #endregion
+        // Debug.DrawRay((Vector2)can_climb_check_HIT.position, new Vector2(Input.GetAxisRaw("Horizontal"), 0).normalized, Color.red, 0.1f);
+
+        //Did the player hit a wall?
+        Collider2D[] amount = Physics2D.OverlapCircleAll(can_climb_check_HIT.position, 0.4f, platformMask);
+        if (amount.Length == 0) return;
+        //transform the player according to this, be sure that it hits a wall
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)can_climb_check_TRANSFORMPOS.position, 
+        new Vector2(Input.GetAxisRaw("Horizontal"), 0).normalized, 0.5f, platformMask);
+        //this has to return false, or it means theres a wall
+        //and we dont want to climb that
+        bool hitMISS = Physics2D.Raycast((Vector2)can_climb_check_MISS.position, new Vector2(Input.GetAxisRaw("Horizontal"), 0).normalized, 0.8f, platformMask);
+        //seems to return TRUE at first, hits the pos (0,0,0). so to be sure add magnitude check
+        if (!hitMISS && hit.point.magnitude != 0) {
+            transform.position = new Vector3(hit.point.x, transform.position.y, 0);
+            current_anim_state = PLAYER_CLIMB;
+            return;
         }
     }
     #endregion
@@ -244,16 +333,19 @@ public class PlayerController : HealthSystem
                     // this.transform.localScale = new Vector3(init_scale.x, init_scale.y,init_scale.z);
                 }
 
-                this.transform.Translate(new Vector3(
-                    Input.GetAxis("Horizontal")*player_walk_speed*Time.deltaTime,
-                    0f,
-                    0f
-                ));
-                current_anim_state = PLAYER_RUN;
+                // this.transform.Translate(new Vector3(
+                //     Input.GetAxis("Horizontal")*player_walk_speed*Time.deltaTime,
+                //     0f,
+                //     0f
+                // ));
+                rb2d.velocity = new Vector2(Input.GetAxisRaw("Horizontal")*player_walk_speed*Time.fixedDeltaTime, rb2d.velocity.y);
+                if (current_anim_state == PLAYER_FALL && !isGrounded) {} else {
+                    current_anim_state = PLAYER_RUN;
+                }
             } else {
                 //Bootleg fix for animation skipping
                 time_before_switch -= Time.deltaTime;
-                if(time_before_switch < 0) {current_anim_state=PLAYER_IDLE;time_before_switch=0.15f;}
+                if(time_before_switch < 0) {current_anim_state=PLAYER_IDLE;time_before_switch=0.15f;rb2d.velocity=new Vector2(0, rb2d.velocity.y);}
             }
 
             isGrounded = CheckIfGrounded();
@@ -262,7 +354,7 @@ public class PlayerController : HealthSystem
                 JumpFunction(jump_strength, horiz);
             }
             if (canDoubleJump && !isGrounded && Input.GetKeyDown(KeyCode.Space)) {
-                rb2d.velocity = Vector2.zero;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 JumpFunction(jump_strength/1.3f, horiz);
                 canDoubleJump = false;
             }

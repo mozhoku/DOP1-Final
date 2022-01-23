@@ -33,11 +33,14 @@ public class Enemy : HealthSystem
             seeker = GetComponent<Seeker>();
             InvokeRepeating("UpdatePath", 0.0f, 0.5f);
         }
+        if (target == null) {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     protected virtual void Update()
     {
-        if (enableAI) UpdateFunction_Pathfinding();
+        if (enableAI && Vector2.Distance(transform.position, target.transform.position) < 10.0f) UpdateFunction_Pathfinding();
         Health_Damage();
     }
 

@@ -24,11 +24,11 @@ public class SkeletonEnemy : Enemy
 
     IEnumerator AttackThrust() {
         while (true){
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)this.transform.position, (Vector2)(raycastpos.position-this.transform.position).normalized, 
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, (Vector2)(raycastpos.position-transform.position).normalized, 
                                                 3.0f, player);
             if (hit.transform != null) {
-                rb2d.velocity = Vector2.zero;
                 dont_move = true;
+                rb2d.velocity = Vector2.zero;
                 animator.Play(ATTACK_THRUST);
                 yield return new WaitForSeconds(2.5f);
             } else {
@@ -42,6 +42,7 @@ public class SkeletonEnemy : Enemy
     {
         if (info.IsName(ATTACK_THRUST)) {base.Health_Damage();}
         base.Health_Damage(HURT, animator);
+
     }
 
 
@@ -60,8 +61,14 @@ public class SkeletonEnemy : Enemy
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
+        // base.Update();
+        // base.Health_Damage();
         info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName(ATTACK_THRUST)) {
+            base.Health_Damage();
+        } else {
+            base.Update();
+        }
         if (!info.IsName(ATTACK_THRUST) && !info.IsName(HURT)) {
             newly_damaged_attack = null;
             if (Mathf.Abs(rb2d.velocity.x) > 0) {

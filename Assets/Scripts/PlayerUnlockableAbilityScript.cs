@@ -52,6 +52,7 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
             case AbilityState.ready:
                 if (!pc.isGrounded && !can_dash_in_air) return;
                 if (Input.GetKeyDown(KeyCode.LeftShift) && isDashUnlocked && !pc.currently_attacking) {
+                    Physics2D.IgnoreLayerCollision(8,6, true);
                     rb2d.gravityScale = 0;
                     rb2d.velocity = Vector2.zero;
                     pc.lockPlayer = true;
@@ -62,7 +63,6 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
                 break;
             case AbilityState.active:
                 //invul during dash -> no collision between enemies and player
-                Physics2D.IgnoreLayerCollision(8,6, true);
                 if (Mathf.Sign(transform.localScale.x) == -1)
                     rb2d.velocity = new Vector2(-dash_range, 0f);
                 else
