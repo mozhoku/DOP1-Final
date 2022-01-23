@@ -19,6 +19,7 @@ public class AnimationController : MonoBehaviour
 
     void PlayAnim() {
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName("player_death")) {return;}
         //let dash end finish before going into idle animation on ground
         if (info.IsName("player_dash_end")) {
             if (info.normalizedTime < 1) {
