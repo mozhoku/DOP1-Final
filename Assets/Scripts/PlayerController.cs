@@ -17,7 +17,7 @@ public class PlayerController : HealthSystem
     private const string PLAYER_GROUND_ATTACK_2 = "player_ground_attack2";
     private const string PLAYER_FALL = "player_fall";
     #endregion
-    
+    public float max_health;
     private bool currently_climbing;
     public bool lockPlayer;
     public string current_anim_state;
@@ -56,6 +56,8 @@ public class PlayerController : HealthSystem
     private PlayerUnlockableAbilityScript unlockable_abilites;
     private bool canDoubleJump;
     [SerializeField] LayerMask platformMask;
+
+    public int EnableDamageBoost = 0;
     
 
     void Start() {
@@ -67,10 +69,14 @@ public class PlayerController : HealthSystem
         currently_climbing = false;
         lockPlayer = false;
         playerDead = false;
+        max_health = health;
     }
 
     void Update()
     {
+        if (health > max_health) {
+            health = max_health;
+        }
         if (health <= 0) {
             if (current_anim_state == PLAYER_DEATH) return;
             OnDeath();
@@ -221,7 +227,7 @@ public class PlayerController : HealthSystem
         foreach (Collider2D coll in collisions) {
             if (coll.gameObject == newly_damaged_attack1) {} else{
             newly_damaged_attack1 = coll.gameObject;
-            newly_damaged_attack1.GetComponent<Enemy>().GetDamaged(20.0f);}
+            newly_damaged_attack1.GetComponent<Enemy>().GetDamaged(20.0f+EnableDamageBoost*10.0f);}
         }
     }
 
@@ -234,7 +240,7 @@ public class PlayerController : HealthSystem
             foreach (Collider2D coll in collisions) {
                 if (coll.gameObject == newly_damaged_attack2) {} else{
                 newly_damaged_attack2 = coll.gameObject;
-                newly_damaged_attack2.GetComponent<Enemy>().GetDamaged(20.0f);}
+                newly_damaged_attack2.GetComponent<Enemy>().GetDamaged(20.0f+EnableDamageBoost*10.0f);}
             }
         }
     }

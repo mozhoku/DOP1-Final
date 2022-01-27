@@ -69,7 +69,8 @@ public class Enemy : HealthSystem
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[current_waypoint] - rb2d.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * speed;
+        force += Vector2.up * -1.0f;
         // Vector2.Lerp((Vector2)transform.position, direction, 0.1f);
         // rb2d.MovePosition(Vector2.Lerp((Vector2)transform.position, path.vectorPath[current_waypoint], 0.1f));
         // transform.Translate(direction);
