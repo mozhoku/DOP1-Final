@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue diyalogPUB;
     public GameObject DialogueBox;
     public PlayerController pc;
+    public bool bIsThisEffectorNPC;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue diyalog) {
         if (pc.lockPlayer == true) return;
         pc.LockPlayerDialogue();
-        LeanTween.move(DialogueBox.GetComponent<RectTransform>(), Vector3.zero, 1.0f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.move(DialogueBox.GetComponent<RectTransform>(), new Vector3(0,-115.0f, 0), 1.0f).setEase(LeanTweenType.easeOutExpo);
         diyalogPUB = diyalog;
         sentencesQueue.Clear();
         foreach (string sentence in diyalog.sentences) {
@@ -34,7 +35,7 @@ public class DialogueManager : MonoBehaviour
         if (sentencesQueue.Count == 0) {
             EndDialogue();
             return;
-        }
+        } 
         string currsentence = sentencesQueue.Dequeue();
         diyalog_text.text = currsentence;
     }
