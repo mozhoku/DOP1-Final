@@ -58,7 +58,9 @@ public class PlayerController : HealthSystem
     [SerializeField] LayerMask platformMask;
 
     public int EnableDamageBoost = 0;
-    
+    public AudioClip jumpSoundClip;
+    public AudioClip runSoundClip;
+
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
@@ -74,6 +76,12 @@ public class PlayerController : HealthSystem
 
     void Update()
     {
+        if (isGrounded && !audioSource.isPlaying && Mathf.Abs(rb2d.velocity.x) > 0) {
+            audioSource.clip = runSoundClip;
+            audioSource.Play();
+        } if (rb2d.velocity.x == 0 && audioSource.clip == runSoundClip) {
+            audioSource.Stop();
+        }
         if (health > max_health) {
             health = max_health;
         }
@@ -357,9 +365,13 @@ public class PlayerController : HealthSystem
             isGrounded = CheckIfGrounded();
             if (isGrounded) canDoubleJump = true;
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+                audioSource.clip = jumpSoundClip;
+                audioSource.Play();
                 JumpFunction(jump_strength, horiz);
             }
             if (canDoubleJump && !isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+                audioSource.clip = jumpSoundClip;
+                audioSource.Play();
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 JumpFunction(jump_strength/1.3f, horiz);
                 canDoubleJump = false;
@@ -375,6 +387,8 @@ public class PlayerController : HealthSystem
 
         if (currently_climbing && (current_anim_state == PLAYER_CLIMB_IDLE || current_anim_state == PLAYER_CLIMB)) {
             if (Input.GetKeyDown(KeyCode.Space)) {
+                audioSource.clip = jumpSoundClip;
+                audioSource.Play();
                 rb2d.AddForce(new Vector2(0, jump_strength), ForceMode2D.Impulse);
                 current_anim_state = PLAYER_JUMP;
                 rb2d.gravityScale = 5;

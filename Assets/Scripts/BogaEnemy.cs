@@ -13,21 +13,30 @@ public class BogaEnemy : Enemy
     public float duration_of_the_ram;
     public float CD_period;
     private Vector3 init_scale;
+    AudioSource audiosource;
+    public AudioClip roar;
     protected override void Start()
     {
         base.Start();
         StartCoroutine(AttackRam());
         init_scale = transform.localScale;
+        audiosource = GetComponent<AudioSource>();
     }
 
     IEnumerator AttackRam() {
+        yield return new WaitForSeconds(2.0f);
         while (true) {
             if (Vector3.Distance(transform.position, player.transform.position) > 10.0f) {
                 yield return new WaitForSeconds(0.1f);
             } 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, RaycastPosition.transform.position-transform.position, Mathf.Infinity, playerMask);
-            if (hit.collider  == null) {yield return new WaitForSeconds(0.1f);continue;}
+            RaycastHit2D hit = Physics2D.Raycast(RaycastPosition.transform.position, 
+                            (RaycastPosition.transform.position-transform.position).normalized, 
+                            Mathf.Infinity);
+            if (hit.collider.gameObject.layer  != 8) {yield return new WaitForSeconds(0.1f);continue;}
             float where_is_player_in_the_x_direction = (player.transform.position - this.transform.position).x;
+            audioSource.clip = roar;
+            audiosource.Play();
+            yield return new WaitForSeconds(0.25f);
             rb2d.velocity = new Vector2(where_is_player_in_the_x_direction, 0f).normalized * speed_of_the_ram;
             animator.SetTrigger("attack");
             yield return new WaitForSeconds(duration_of_the_ram);

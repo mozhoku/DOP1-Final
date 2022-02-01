@@ -6,9 +6,15 @@ public class HealthSystem : MonoBehaviour
 {
     [SerializeField]
     public float health;
+    public AudioSource audioSource;
+    public AudioClip HurtSound;
 
     public void GetDamaged(float damage) {
         health -= damage;
+        audioSource = GetComponent<AudioSource>();
+        AudioClip beforeAudio = audioSource.clip;
+        audioSource.clip = HurtSound;
+        audioSource.Play();
     }
 
     public void GetDamaged_FLASHFUSED(float damage, SpriteRenderer sr) {

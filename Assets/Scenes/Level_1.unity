@@ -4747,6 +4747,7 @@ MonoBehaviour:
   diyalog_text: {fileID: 962398238}
   DialogueBox: {fileID: 479896086}
   pc: {fileID: 217450268}
+  bIsThisEffectorNPC: 0
 --- !u!4 &777704155
 Transform:
   m_ObjectHideFlags: 0
@@ -6687,6 +6688,11 @@ MonoBehaviour:
 '
     end_strings:
     - Soylecek baska sozum yok. Git.
+  NotFoundObjectDialogue:
+    name: 
+    sentences: []
+    end_strings: []
+  bIsThisEffectorNPC: 0
 --- !u!50 &1729747724
 Rigidbody2D:
   serializedVersion: 4
