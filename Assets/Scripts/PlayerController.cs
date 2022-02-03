@@ -66,6 +66,7 @@ public class PlayerController : HealthSystem
         rb2d = this.GetComponent<Rigidbody2D>();
         bc2d = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponent<SpriteRenderer>();
+        audioSource = this.GetComponent<AudioSource>();
         unlockable_abilites = GetComponent<PlayerUnlockableAbilityScript>();
         init_scale = this.transform.localScale;
         currently_climbing = false;
@@ -76,10 +77,12 @@ public class PlayerController : HealthSystem
 
     void Update()
     {
-        if (isGrounded && !audioSource.isPlaying && Mathf.Abs(rb2d.velocity.x) > 0) {
+        if (isGrounded && !audioSource.isPlaying && Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) {
             audioSource.clip = runSoundClip;
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
             audioSource.Play();
-        } if (rb2d.velocity.x == 0 && audioSource.clip == runSoundClip) {
+        } if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 0 && audioSource.clip == runSoundClip) {
+            audioSource.pitch = 1;
             audioSource.Stop();
         }
         if (health > max_health) {

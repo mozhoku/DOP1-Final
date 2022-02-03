@@ -39,5 +39,9 @@ public class UChest_Functions : MonoBehaviour
         PlayerEffectors.bdid_get_damage_boost = true;
     }
 
+    public void QuitGame() {
+        Application.Quit();
+    }
+
 
 }

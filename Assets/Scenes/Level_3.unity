@@ -1397,11 +1397,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2909820843661201210, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
   m_PrefabInstance: {fileID: 1278754958}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &314970910 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1050752043956674822, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
-  m_PrefabInstance: {fileID: 1278754958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331181289
 GameObject:
   m_ObjectHideFlags: 0
@@ -8285,10 +8280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1050752043956674822, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1509687332921160327, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
       propertyPath: slider
       value: 
@@ -8297,18 +8288,6 @@ PrefabInstance:
       propertyPath: levelLoad
       value: 
       objectReference: {fileID: 1415085601}
-    - target: {fileID: 2909820843661201200, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 314970910}
-    - target: {fileID: 2909820843661201200, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
-      propertyPath: runSoundClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc1ca03e107b2774d871314e08b4584f, type: 3}
-    - target: {fileID: 2909820843661201200, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
-      propertyPath: jumpSoundClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5c0f7460e0ec53d4f96ef7a7541f00cd, type: 3}
     - target: {fileID: 2909820843661201210, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
       propertyPath: m_Name
       value: player

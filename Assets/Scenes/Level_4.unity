@@ -65730,7 +65730,7 @@ PolygonCollider2D:
       - {x: -0.23854637, y: 0.08619191}
       - {x: -0.23166648, y: -0.56886375}
       - {x: 0.48704603, y: -0.56076217}
-      - {x: 0.5148046, y: 1.2818063}
+      - {x: 0.49763882, y: 1.2783904}
 --- !u!212 &235166245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65939,6 +65939,133 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca9a009e57752e429c68130426810a4, type: 3}
+--- !u!1 &351874089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351874091}
+  - component: {fileID: 351874090}
+  m_Layer: 0
+  m_Name: BGSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &351874090
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351874089}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e774e88333850364e8dc5f70d5b496f0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &351874091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351874089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.04289, y: -0.2512932, z: -33.33042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &398438229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66391,8 +66518,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6934148216298174138, guid: f7b2a16933dd86e4c85605b7e4415b6f, type: 3}
       propertyPath: diyalog.sentences.Array.data[2]
-      value: "Ancak seni uyaray\u0131m, bu yonde devam edersen ileride lanetli bir
-        kale ile karsilasacaksin."
+      value: Ancak seni uyararyim bu yonde devam edersen ileride lanetli bir kale
+        ile karsilasacaksin.
       objectReference: {fileID: 0}
     - target: {fileID: 6934148216298174138, guid: f7b2a16933dd86e4c85605b7e4415b6f, type: 3}
       propertyPath: diyalog.sentences.Array.data[3]
@@ -66726,7 +66853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036056843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.60427, y: -0.5118537, z: -10.703521}
+  m_LocalPosition: {x: 27.85511, y: -0.5054121, z: -10.703521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87440,7 +87567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911622272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.621868, y: -3.9295998, z: -10.703521}
+  m_LocalPosition: {x: 27.871868, y: -3.7596002, z: -10.703521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 105185930}
@@ -87586,11 +87713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2909820843661201213, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.6
+      value: 22.85
       objectReference: {fileID: 0}
     - target: {fileID: 2909820843661201213, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7
+      value: -4.53
       objectReference: {fileID: 0}
     - target: {fileID: 2909820843661201213, guid: f8fd56df35e12244fbabe54b45b703f5, type: 3}
       propertyPath: m_LocalPosition.z

@@ -14,6 +14,7 @@ public class HealthSystem : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         AudioClip beforeAudio = audioSource.clip;
         audioSource.clip = HurtSound;
+        audioSource.pitch = 1;
         audioSource.Play();
     }
 

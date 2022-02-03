@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1050752043956674822}
   HurtSound: {fileID: 8300000, guid: f0d239f1ee6133b43abd98ac8d713805, type: 3}
   max_health: 0
   lockPlayer: 0
@@ -397,6 +397,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   EnableDamageBoost: 0
+  jumpSoundClip: {fileID: 8300000, guid: 5c0f7460e0ec53d4f96ef7a7541f00cd, type: 3}
+  runSoundClip: {fileID: 8300000, guid: c581850a2fedde543bf9a0ab316898a6, type: 3}
 --- !u!114 &2909820843661201202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +444,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
