@@ -18,6 +18,8 @@ public class AnimationController : MonoBehaviour
     }
 
     void PlayAnim() {
+        if (pc.pausemenu.isPaused) {animator.speed = 0;return;}
+        else {animator.speed = 1;}
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
         if (info.IsName("player_death")) {return;}
         //let dash end finish before going into idle animation on ground

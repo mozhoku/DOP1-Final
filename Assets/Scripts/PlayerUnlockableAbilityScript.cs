@@ -42,6 +42,8 @@ public class PlayerUnlockableAbilityScript : MonoBehaviour
     void Update()
     {
         if (pc.playerDead){return;} 
+        if (pc.lockPlayer && pc.isGrounded && state_dash == AbilityState.ready) return;
+        if (pc.currently_climbing) return;
         if (pc.isGrounded) can_dash_in_air = true;
         Dash();
     }

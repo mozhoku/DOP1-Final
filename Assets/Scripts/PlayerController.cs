@@ -18,7 +18,7 @@ public class PlayerController : HealthSystem
     private const string PLAYER_FALL = "player_fall";
     #endregion
     public float max_health;
-    private bool currently_climbing;
+    public bool currently_climbing;
     public bool lockPlayer;
     public string current_anim_state;
     [SerializeField] private LevelLoader levelLoad;
@@ -52,7 +52,7 @@ public class PlayerController : HealthSystem
     public GameObject dust_particle_jump_directional;
     public GameObject dust_particle_jump_nondirectional;
     public bool playerDead;
-    private bool isInvincible;
+    public bool isInvincible;
     private PlayerUnlockableAbilityScript unlockable_abilites;
     private bool canDoubleJump;
     [SerializeField] LayerMask platformMask;
@@ -61,6 +61,7 @@ public class PlayerController : HealthSystem
     public AudioClip jumpSoundClip;
     public AudioClip runSoundClip;
 
+    public PauseMenu pausemenu;
 
     void Start() {
         rb2d = this.GetComponent<Rigidbody2D>();
@@ -73,10 +74,12 @@ public class PlayerController : HealthSystem
         lockPlayer = false;
         playerDead = false;
         max_health = health;
+        isInvincible = false;
     }
 
     void Update()
     {
+        if (pausemenu.isPaused) {audioSource.Stop();return;}
         if (isGrounded && !audioSource.isPlaying && Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) {
             audioSource.clip = runSoundClip;
             audioSource.pitch = Random.Range(0.8f, 1.2f);
@@ -173,6 +176,7 @@ public class PlayerController : HealthSystem
     }
 
     #region ONCOLLISION
+    /*
     private void OnCollisionEnter2D(Collision2D other) {
 
         if (other.gameObject.layer == 6 && !isInvincible) {
@@ -188,15 +192,16 @@ public class PlayerController : HealthSystem
             // base.GetHurt(sr);
             // rb2d.gravityScale = 5;
             // isInvincible = true;
-            // Invoke("ResetInvincible", 2.0f);
+            Invoke("ResetInvincible", 2.0f);
         }
     }
+    */
     #endregion
 
 
     #region RESETS
 
-    void ResetInvincible() {
+    public void ResetInvincible() {
         isInvincible = false;
     }
 

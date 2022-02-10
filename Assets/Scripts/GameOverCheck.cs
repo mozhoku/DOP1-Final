@@ -23,9 +23,7 @@ public class GameOverCheck : MonoBehaviour
     }
     IEnumerator OverCoro() {
         while (true) {
-            Debug.Log("Heya");
             if (isItOver) {
-                Debug.Log("Waov");
                 LeanTween.alpha(srFadeBlack, 1.0f, 1.0f).setOnComplete(LoadNext);
                 yield return new WaitForSeconds(50.0f);
             }

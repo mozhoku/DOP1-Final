@@ -103,4 +103,22 @@ public class Enemy : HealthSystem
         Instantiate(death_anim, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
+
+    public virtual void OnCollisionEnter2D(Collision2D other) {
+        Debug.Log(other.gameObject);
+        if (other.gameObject.layer == 8) {
+            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+            if (pc.isInvincible) return;
+            pc.PlayerGetHurt(20.0f);
+            foreach (ContactPoint2D contact in other.contacts) {
+                Vector2 direction = new Vector2(other.gameObject.transform.position.x, other.gameObject.transform.position.y) - contact.point;
+                other.gameObject.GetComponent<Rigidbody2D>().AddForce(direction*4.0f, ForceMode2D.Impulse);
+            }
+            StartCoroutine(ResetInv(pc));
+        }
+    }
+    IEnumerator ResetInv(PlayerController pc) {
+        yield return new WaitForSeconds(2.0f);
+        pc.isInvincible = false;
+    }
 }
